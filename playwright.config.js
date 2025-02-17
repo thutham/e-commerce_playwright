@@ -5,7 +5,7 @@ module.exports = defineConfig({
   use: {
     headless: false,
     viewport: { width: 1280, height: 720 },
-    baseURL: BASE_URL, // Use BASE_URL from dev.config.js
+    baseURL: BASE_URL,
   },
   projects: [
     {
@@ -22,5 +22,9 @@ module.exports = defineConfig({
         channel: 'msedge',
       },
     },
+  ],
+  reporter: [
+    ['list'],
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
   ],
 });
