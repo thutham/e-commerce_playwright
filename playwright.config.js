@@ -1,5 +1,9 @@
 const { defineConfig } = require('@playwright/test');
-const { BASE_URL } = require('./environments/dev.config');
+
+// Determine environment and load corresponding configuration
+const env = process.env.NODE_ENV || 'dev'; // Default to 'dev' if NODE_ENV is not set
+const envURL = require(`./environments/${env}/${env}.config`);
+const { BASE_URL, LOGIN_URL } = envURL;
 
 module.exports = defineConfig({
   use: {
